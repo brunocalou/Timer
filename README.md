@@ -54,7 +54,9 @@ Arduino timer library. It supports callbacks with functions and methods, so it c
 
 *  **private** `unsigned long last_interval_time` - Stores the last time the callback was called
 
-*  **private** `unsigned int repeat_count` - Stores the number of times to call the callback function
+*  **private** `unsigned int repeat_count` - Stores the number of times remaining to call the callback function
+
+*  **private** `unsigned int total_repeat_count` - Stores the number of times to call the callback function
 
 *  **private** `bool interval_is_setted` - Stores if the interval was setted
 

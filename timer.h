@@ -108,6 +108,7 @@ private:
 	unsigned long interval;
 	unsigned long last_interval_time;
 	unsigned int repeat_count;
+	unsigned int total_repeat_count;
 	bool interval_is_setted;
 	
 	void (*function_callback)(void);

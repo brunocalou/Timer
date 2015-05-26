@@ -13,7 +13,15 @@ Timer::Timer() {
 }
 
 void Timer::start() {
-	reset();
+	if(isPaused()) {
+		int paused_time = millis() - current_time;
+		current_time = millis();
+		initial_time += paused_time;
+		last_interval_time += paused_time;
+	} else {
+		reset();
+		repeat_count = total_repeat_count;
+	}
 
 	is_running = true;
 	is_paused = false;
@@ -74,6 +82,7 @@ void Timer::update() {
 void Timer::setInterval(unsigned long interval, unsigned int repeat_count){
 	this->interval = interval;
 	this->repeat_count = repeat_count;
+	total_repeat_count = repeat_count;
 	interval_is_setted = true;
 }
 
