@@ -64,7 +64,7 @@ public:
 	void reset();
 
   /**
-   * Adds a timer to the TimerManager
+     Adds a timer to the TimerManager
    */
   void add(Timer *timer);
 
