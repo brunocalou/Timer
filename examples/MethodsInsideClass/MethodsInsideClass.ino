@@ -1,5 +1,6 @@
 /*
   Created by Bruno Calou Alves, May, 2015.
+  Link - https://github.com/brunocalou/Timer
   Read LICENSE for more information.
 */
 
@@ -11,14 +12,14 @@ public:
   FooLed(byte led_pin):
 
   timer(this, &FooLed::blink){
-    
+
     this->led_pin = led_pin;
     pinMode(led_pin, OUTPUT);
     led_is_on = false;
 
     //Set our interval
     timer.setInterval(1000);
-    
+
     //Start the timer
     timer.start();
   }

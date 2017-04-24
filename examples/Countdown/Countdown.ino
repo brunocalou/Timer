@@ -1,5 +1,6 @@
 /*
   Created by Bruno Calou Alves, May, 2015.
+  Link - https://github.com/brunocalou/Timer
   Read LICENSE for more information.
 */
 
@@ -21,7 +22,7 @@ void setup()
 {
   Serial.begin(9600);
 
-  //Set the interval in milliseconds we want the led to blink
+  //Set the interval in milliseconds
   //and the number of repetitions
   timer.setInterval(1000, 6);
 

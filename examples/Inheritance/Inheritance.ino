@@ -1,5 +1,6 @@
 /*
   Created by Bruno Calou Alves, May, 2015.
+  Link - https://github.com/brunocalou/Timer
   Read LICENSE for more information.
 */
 
@@ -9,7 +10,7 @@
 class FooLed: public Timer {
 public:
   FooLed(byte led_pin){
-    
+
     this->led_pin = led_pin;
     pinMode(led_pin, OUTPUT);
     led_is_on = false;

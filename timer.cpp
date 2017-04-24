@@ -1,4 +1,5 @@
 #include "timer.h"
+#include "timerManager.h"
 
 Timer::Timer() {
 	initial_time = 0;
@@ -10,6 +11,11 @@ Timer::Timer() {
 	is_paused = false;
 	interval_is_setted = false;
 	function_callback = NULL;
+	TimerManager::instance().add(this);
+}
+
+Timer::~Timer() {
+	TimerManager::instance().remove(this);
 }
 
 void Timer::start() {
@@ -73,7 +79,7 @@ void Timer::update() {
 				}
 				call();
 				last_interval_time = current_time;
-				
+
 			}
 		}
 	}

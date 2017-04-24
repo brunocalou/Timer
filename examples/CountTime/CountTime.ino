@@ -1,5 +1,6 @@
 /*
   Created by Bruno Calou Alves, May, 2015.
+  Link - https://github.com/brunocalou/Timer
   Read LICENSE for more information.
 */
 

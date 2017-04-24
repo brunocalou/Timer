@@ -3,6 +3,8 @@
 	as a callback caller. It supports callbacks from functions or
 	methods, both with void args.
 
+	Link - https://github.com/brunocalou/Timer
+
 	Created by Bruno Calou Alves, May, 2015.
 	Read LICENSE for more information.
 */
@@ -25,6 +27,8 @@
 class Timer {
 public:
 	Timer();
+
+	~Timer();
 
 	/*
 		Starts the timer
@@ -61,7 +65,7 @@ public:
 		timer will stop after that (if repeat count > 0)
 	*/
 	void setInterval(unsigned long interval, unsigned int repeat_count=-1);
-	
+
 	/*
 		Sets the timeout time. The callback function will
 		be called just once. WARNING: The timer will stop
@@ -110,7 +114,7 @@ private:
 	unsigned int repeat_count;
 	unsigned int total_repeat_count;
 	bool interval_is_setted;
-	
+
 	void (*function_callback)(void);
 };
 
