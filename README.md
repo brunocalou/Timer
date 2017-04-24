@@ -2,19 +2,21 @@
 Arduino timer library. It supports callbacks with functions and methods, so it can be used inside another library
 
 ------------------------
-##Installation
+## Installation
 1. [Download](https://github.com/brunocalou/Timer/archive/master.zip) the latest release from github
 2. Unzip and rename the folder to "Timer" (remove the -master)
-3. Paste the modified folder on your Library folder (.../arduino/libraries)
+3. Paste the modified folder on your Library folder (.../Arduino/libraries)
 4. Reopen the Arduino IDE
 
 ------------------------
 
-##Library Reference
+## Library Reference
 
-###`Timer` class
+### `Timer` class
 
 *  `Timer()` - Constructor
+
+*  `~Timer()` - Destructor
 
 *  `void start()` - Starts the timer
 
@@ -62,7 +64,7 @@ Arduino timer library. It supports callbacks with functions and methods, so it c
 
 *  **private** `void (*function_callback)(void)` - Stores the callback function
 
-###`TimerForMethods` class
+### `TimerForMethods` class
 
 *  `TimerForMethods(Obj *object, void (Obj::*callback)(void))` - Constructor
 
@@ -71,3 +73,20 @@ Arduino timer library. It supports callbacks with functions and methods, so it c
 *  **private** `Obj *object` - Stores the object to be used
 
 *  **private** `void (Obj::*method)(void)` - Stores the method to be called
+
+### `TimerManager` class
+
+*  `static TimerManager& instance()` - Get the TimerManager instance
+*  void update()` - Updates all the timers
+*  `void start()` - Starts all the timers
+*  `void stop()` - Stops and resets the all timers
+*  `void pause()` - Pauses all the timers
+*  `void reset()` - Resets all the timers. WARNING: The timers will not stop,
+		the only thing that changes is the initial time
+*  `void add(Timer *timer)` - Adds a timer to the TimerManager
+*  `bool remove(Timer *timer)` - Removes a timer from the TimerManager. Return true if the timer was removed, false otherwise
+*  **private** `TimerManager()` - Constructor
+*  **private** `TimerManager(TimerManager const &)` - Constructor
+*  **private** `void operator=(TimerManager const &)` - Copy operator
+*  **private** `TimerNode *first` - A pointer to the first TimerNode
+*  **private** `TimerNode *last` - A pointer to the last TimerNode
