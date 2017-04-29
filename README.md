@@ -1,5 +1,7 @@
 # Timer
-Arduino timer library. It supports callbacks with functions and methods
+Arduino timer library. Perfect for removing `delay()` functions from your code and to create asynchronous tasks easily.
+
+It supports callbacks with functions and methods, so you can use it inside your classes
 
 ------------------------
 
@@ -8,6 +10,107 @@ Arduino timer library. It supports callbacks with functions and methods
 2. Unzip and rename the folder to "Timer" (remove the -master)
 3. Paste the modified folder on your Library folder (.../Arduino/libraries)
 4. Reopen the Arduino IDE
+
+------------------------
+
+## Usage
+
+Let's see the basic usage
+
+```cpp
+#include "timer.h"
+
+// Create the timer instance
+Timer timer;
+
+void helloCallback() {
+  Serial.println("Hello");
+}
+
+void setup()
+{
+  Serial.begin(9600);
+  
+  // The timer will repeat every 1000 ms
+  timer.setInterval(1000); 
+
+  // The function to be called
+  timer.setCallback(helloCallback);
+
+  // Start the timer
+  timer.start();
+}
+
+void loop()
+{
+  //Update the timer
+  timer.update();
+}
+```
+
+Using the same code above, you can change it to call the helloCallback a limited number of times
+```cpp
+  // The timer will repeat every 1000 ms and will call the callback only 5 times
+  timer.setInterval(1000, 5);
+```
+
+If you want to call only once, there is a method for that
+
+```cpp
+  // Will call the callback only once
+  timer.setTimeout(1000);
+```
+
+> Now imagine I have a class. How would I use the Timer if it works only with functions?
+
+Easy, wrap the method inside a function
+
+```cpp
+  void callMyMethod() {
+    instance.myMethod();
+  }
+  
+  timer.setCallback(callMyMethod);
+```
+
+Or, you can use the TimerForMethods class
+
+```cpp
+  MyClass myInstance;
+  TimerForMethods<MyClass> timer(&myInstance, &MyClass::myMethod);
+```
+
+Altough it's more verbose, it's very useful if a timer is beeing used inside a class.
+
+> What if I have a lot of timers? Do I have to keep calling start, update, stop, ..., for every single timer?
+
+Of course not! I'm here to help. Look at this magic
+
+```cpp
+#include "timer.h"
+#include "timerManager.h"
+
+Timer timer1;
+Timer timer2;
+Timer timer3;
+Timer timer4;
+Timer timer5;
+
+... // Write your callbacks
+
+void setup() {
+  ... // Write your setup logic
+  
+  //Start all the timers
+  TimerManager::instance().start();
+}
+
+void loop() {
+  ... // Write your loop logic
+  
+  //Update all the timers at once
+  TimerManager::instance().update();
+```
 
 ------------------------
 
