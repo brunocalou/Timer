@@ -23,17 +23,9 @@
 
 #include "timer.h"
 
-class TimerNode {
-public:
-  TimerNode(Timer *timer) {
-    next = NULL;
-    value = timer;
-  }
-  TimerNode *next;
-  Timer *value;
-};
-
 class TimerManager {
+  friend class Timer;
+
 public:
   static TimerManager& instance();
 
@@ -63,6 +55,11 @@ public:
 	*/
 	void reset();
 
+private:
+  TimerManager();
+  TimerManager(TimerManager const &);
+  void operator=(TimerManager const &);
+
   /**
      Adds a timer to the TimerManager
    */
@@ -74,10 +71,15 @@ public:
    */
   bool remove(Timer *timer);
 
-private:
-  TimerManager();
-  TimerManager(TimerManager const &);
-  void operator=(TimerManager const &);
+  class TimerNode {
+  public:
+    TimerNode(Timer *timer) {
+      next = NULL;
+      value = timer;
+    }
+    TimerNode *next;
+    Timer *value;
+  };
 
   TimerNode *first;
   TimerNode *last;

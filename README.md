@@ -1,7 +1,8 @@
 # Timer
-Arduino timer library. It supports callbacks with functions and methods, so it can be used inside another library
+Arduino timer library. It supports callbacks with functions and methods
 
 ------------------------
+
 ## Installation
 1. [Download](https://github.com/brunocalou/Timer/archive/master.zip) the latest release from github
 2. Unzip and rename the folder to "Timer" (remove the -master)
@@ -77,16 +78,23 @@ Arduino timer library. It supports callbacks with functions and methods, so it c
 ### `TimerManager` class
 
 *  `static TimerManager& instance()` - Get the TimerManager instance
-*  void update()` - Updates all the timers
+*  `void update()` - Updates all the timers
 *  `void start()` - Starts all the timers
 *  `void stop()` - Stops and resets the all timers
 *  `void pause()` - Pauses all the timers
 *  `void reset()` - Resets all the timers. WARNING: The timers will not stop,
 		the only thing that changes is the initial time
-*  `void add(Timer *timer)` - Adds a timer to the TimerManager
-*  `bool remove(Timer *timer)` - Removes a timer from the TimerManager. Return true if the timer was removed, false otherwise
+*  **private** `void add(Timer *timer)` - Adds a timer to the TimerManager
+*  **private** `bool remove(Timer *timer)` - Removes a timer from the TimerManager. Return true if the timer was removed, false otherwise
 *  **private** `TimerManager()` - Constructor
 *  **private** `TimerManager(TimerManager const &)` - Constructor
 *  **private** `void operator=(TimerManager const &)` - Copy operator
+*  **private** `class TimerNode` - A node of Timers used to implement a simple linked list
 *  **private** `TimerNode *first` - A pointer to the first TimerNode
 *  **private** `TimerNode *last` - A pointer to the last TimerNode
+
+
+### `TimerManager::TimerNode` class
+
+*  `TimerNode *nextfirst` - A pointer to the next TimerNode
+*  `Timer *value` - A pointer to the Timer instance associated with this node
