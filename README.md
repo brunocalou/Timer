@@ -6,7 +6,7 @@ It supports callbacks with functions and methods, so you can use it inside your 
 ------------------------
 
 ## Installation
-1. [Download](https://github.com/brunocalou/Timer/archive/master.zip) the latest release from github
+1. [Download](https://github.com/brunocalou/Timer/archive/master.zip) the latest release from [github](https://github.com/brunocalou/Timer)
 2. Unzip and rename the folder to "Timer" (remove the -master)
 3. Paste the modified folder on your Library folder (.../Arduino/libraries)
 4. Reopen the Arduino IDE
@@ -201,3 +201,8 @@ void loop() {
 
 *  `TimerNode *nextfirst` - A pointer to the next TimerNode
 *  `Timer *value` - A pointer to the Timer instance associated with this node
+
+------------------------
+
+## License
+MIT
