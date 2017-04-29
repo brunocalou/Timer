@@ -11,7 +11,8 @@ class FooLed {
 public:
   FooLed(byte led_pin):
 
-  timer(this, &FooLed::blink){
+  // Set the blink method as the callback on the timer
+  timer(this, &FooLed::blink) {
 
     this->led_pin = led_pin;
     pinMode(led_pin, OUTPUT);

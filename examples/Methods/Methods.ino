@@ -9,7 +9,7 @@
 //Create our class (FooLed, got it ?)
 class FooLed {
 public:
-  FooLed(byte led_pin){
+  FooLed(byte led_pin) {
     this->led_pin = led_pin;
     pinMode(led_pin, OUTPUT);
     led_is_on = false;

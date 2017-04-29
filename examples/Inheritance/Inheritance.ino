@@ -9,7 +9,7 @@
 //Create our class and inherit the Timer class
 class FooLed: public Timer {
 public:
-  FooLed(byte led_pin){
+  FooLed(byte led_pin) {
 
     this->led_pin = led_pin;
     pinMode(led_pin, OUTPUT);
