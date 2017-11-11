@@ -199,7 +199,7 @@ void loop() {
 
 ### `TimerManager::TimerNode` class
 
-*  `TimerNode *nextfirst` - A pointer to the next TimerNode
+*  `TimerNode *next` - A pointer to the next TimerNode
 *  `Timer *value` - A pointer to the Timer instance associated with this node
 
 ------------------------
