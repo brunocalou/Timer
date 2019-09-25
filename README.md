@@ -124,9 +124,11 @@ void loop() {
 
 *  `void start()` - Starts the timer
 
-*  `void stop()` - Pauses the timer. It can continue where it paused after calling start method
+*  `void stop()` - Stops and resets the timer
 
-*  `void pause()` - Resets the timer. WARNING: The timer will not stop, the only thing that changes is the initial time
+*  `void pause()` - Pauses the timer. It can continue where it paused after calling start method
+
+* `void reset()` - Resets the timer elapsed time. If the timer is running, it will continue to do so
 
 *  `unsigned long getElapsedTime()` - Returns the elapsed time in milliseconds
 
@@ -181,12 +183,11 @@ void loop() {
 ### `TimerManager` class
 
 *  `static TimerManager& instance()` - Get the TimerManager instance
-*  `void update()` - Updates all the timers
-*  `void start()` - Starts all the timers
-*  `void stop()` - Stops and resets the all timers
-*  `void pause()` - Pauses all the timers
-*  `void reset()` - Resets all the timers. WARNING: The timers will not stop,
-		the only thing that changes is the initial time
+*  `void update()` - Updates all timers
+*  `void start()` - Starts all timers
+*  `void stop()` - Stops and resets all timers
+*  `void pause()` - Pauses all timers
+*  `void reset()` - Resets elapsed time of all timers. If any timer was running, it will continue to do so
 *  **private** `void add(Timer *timer)` - Adds a timer to the TimerManager
 *  **private** `bool remove(Timer *timer)` - Removes a timer from the TimerManager. Return true if the timer was removed, false otherwise
 *  **private** `TimerManager()` - Constructor

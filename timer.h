@@ -47,8 +47,7 @@ public:
 	void pause();
 
 	/*
-		Resets the timer. WARNING: The timer will not stop,
-		the only thing that changes is the initial time
+		Resets the timer elapsed time. If the timer is running, it will continue to do so
 	*/
 	void reset();
 

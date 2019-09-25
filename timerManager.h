@@ -30,28 +30,27 @@ public:
   static TimerManager& instance();
 
   /**
-     Updates all the timers
+     Updates all timers
    */
   void update();
 
   /*
-		Starts all the timers
+		Starts all timers
 	*/
 	void start();
 
 	/*
-		Stops and resets the all timers
+		Stops and resets all timers
 	*/
 	void stop();
 
 	/*
-		Pauses all the timers
+		Pauses all timers
 	*/
 	void pause();
 
 	/*
-		Resets all the timers. WARNING: The timers will not stop,
-		the only thing that changes is the initial time
+		Resets elapsed time of all timers. If any timer was running, it will continue to do so
 	*/
 	void reset();
 
