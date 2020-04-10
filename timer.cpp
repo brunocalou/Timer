@@ -85,7 +85,7 @@ void Timer::update() {
 	}
 }
 
-void Timer::setInterval(unsigned long interval, unsigned int repeat_count){
+void Timer::setInterval(unsigned long interval, int repeat_count){
 	this->interval = interval;
 	this->repeat_count = repeat_count;
 	total_repeat_count = repeat_count;

@@ -132,7 +132,7 @@ void loop() {
 
 *  `unsigned long getElapsedTime()` - Returns the elapsed time in milliseconds
 
-*  `void setInterval(unsigned long interval, unsigned int repeat_count=-1)` - Sets the interval time. The callback function will be called every "interval" ms. The repeat count will prevent the callback from being called after a number of repetetions (if it's > 0). WARNING: The timer will stop after that (if repeat count > 0)
+*  `void setInterval(unsigned long interval, int repeat_count=-1)` - Sets the interval time. The callback function will be called every "interval" ms. The repeat count will prevent the callback from being called after a number of repetetions (if it's > 0). WARNING: The timer will stop after that (if repeat count > 0)
 
 *  `void setTimeout(unsigned long timeout)` - Sets the timeout time. The callback function will be called just once. WARNING: The timer will stop after that
 
@@ -162,9 +162,9 @@ void loop() {
 
 *  **private** `unsigned long last_interval_time` - Stores the last time the callback was called
 
-*  **private** `unsigned int repeat_count` - Stores the number of times remaining to call the callback function
+*  **private** `int repeat_count` - Stores the number of times remaining to call the callback function
 
-*  **private** `unsigned int total_repeat_count` - Stores the number of times to call the callback function
+*  **private** `int total_repeat_count` - Stores the number of times to call the callback function
 
 *  **private** `bool interval_is_setted` - Stores if the interval was setted
 
