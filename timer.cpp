@@ -71,14 +71,14 @@ void Timer::update() {
 
 		if(interval_is_setted) {
 			if(current_time - last_interval_time >= interval) {
-                call();
-                repeat_count -= 1;
-                if(repeat_count == 0) {
-                    stop();
-                    return;
-                }
+				call();
+				repeat_count -= 1;
+				if(repeat_count == 0) {
+					stop();
+					return;
+				}
 
-                last_interval_time = current_time;
+				last_interval_time = current_time;
 			}
 		}
 	}
