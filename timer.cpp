@@ -72,8 +72,9 @@ void Timer::update() {
 		if(interval_is_setted) {
 			if(current_time - last_interval_time >= interval) {
 				call();
-				if(repeat_count > 0)
+				if(repeat_count > 0) {
 					repeat_count -= 1;
+				}
 				if(repeat_count == 0) {
 					stop();
 					return;
